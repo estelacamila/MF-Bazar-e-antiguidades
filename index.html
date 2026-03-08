@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bazar | Por Talita Beluzo</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- MENU -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <h3>Menu</h3>
+    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+  </div>
+
+  <nav>
+    <a href="#" onclick="voltar(); toggleMenu()">Início</a>
+
+    <h4>Moda</h4>
+    <a href="#" onclick="filtrar('Vestidos'); toggleMenu()">Vestidos</a>
+    <a href="#" onclick="filtrar('Shorts'); toggleMenu()">Shorts</a>
+    <a href="#" onclick="filtrar('Conjuntos'); toggleMenu()">Conjuntos</a>
+    <a href="#" onclick="filtrar('pijama'); toggleMenu()">Pijamas</a>
+
+    <h4>Público</h4>
+    <a href="#" onclick="filtrar('masculino'); toggleMenu()">Masculino</a>
+    <a href="#" onclick="filtrar('infantil'); toggleMenu()">Infantil</a>
+
+    <a href="#promocao" onclick="toggleMenu()">Promoções</a>
+    <a href="#quem-somos" onclick="toggleMenu()">Quem Somos</a>
+    <a href="#contatos" onclick="toggleMenu()">Contatos</a>
+  </nav>
+</div>
+
+<!-- CARRINHO -->
+<div id="cart-sidebar" class="sidebar-cart">
+  <div class="cart-header">
+    <h3>Minha Seleção</h3>
+    <span class="close-btn" onclick="toggleCart()">&times;</span>
+  </div>
+
+   <div class="cart-footer">
+    <p>Consulte tamanhos e cores:</p>
+  </div>
+
+  <div id="cart-items"></div>
+<button onclick="enviarConsulta()">Consultar Disponibilidade</button>
+  
+</div>
+
+<div id="overlay" onclick="toggleMenu()"></div>
+<div id="overlay-cart" onclick="toggleCart()"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <div class="brand-container">
+    <div class="logo-round">
+      <img src="logo.jpeg">
+    </div>
+    <h1 class="brand">MF Bazar e Antiguidades</h1>
+  </div>
+
+  <div class="cart-icon" onclick="toggleCart()">🛍️ <span id="cart-count">0</span></div>
+</header>
+
+
+<!-- HERO -->
+<!-- <section class="hero-carousel">
+  <div class="slide active" style="background-image:url('WhatsApp Image 2026-01-14 at 21.13.13 (1).jpeg')"></div>
+  <div class="slide" style="background-image:url('WhatsApp Image 2026-01-14 at 21.13.13.jpeg')"></div>
+</section> -->
+
+
+
+
+
+<!-- INFO -->
+<div class="info-bar">
+  <div class="info-text">
+    ✨ Bazar e Antiguidades • Peças selecionadas • Do tamanho 0 ao Plus Size • Feminino • Masculino • Infantil ✨
+  </div>
+</div>
+
+<!-- PROMO -->
+<section id="promocao" class="promo-semana">
+  <h2>🔥 Promoção da Semana</h2>
+
+  <div class="grid-promocao">
+    <div class="promo-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2jwdwQ5VaN2_6gnHtOJyEEJaRAHN6zUqJaQ&s">
+      <h4>Top Fitness</h4>
+      <button onclick="adicionarSacola('Top Fitness')">Adicionar</button>
+    </div>
+
+    <div class="promo-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2jwdwQ5VaN2_6gnHtOJyEEJaRAHN6zUqJaQ&s">
+      <h4>Biquíni Classic</h4>
+      <button onclick="adicionarSacola('Biquíni Classic')">Adicionar</button>
+    </div>
+
+    <div class="promo-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2jwdwQ5VaN2_6gnHtOJyEEJaRAHN6zUqJaQ&s">
+      <h4>Legging Premium</h4>
+      <button onclick="adicionarSacola('Legging Premium')">Adicionar</button>
+    </div>
+
+    <div class="promo-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2jwdwQ5VaN2_6gnHtOJyEEJaRAHN6zUqJaQ&s">
+      <h4>Pijama Confort</h4>
+      <button onclick="adicionarSacola('Pijama Confort')">Adicionar</button>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIAS -->
+<h2 id="titulo-colecoes" class="section-title">Coleções</h2>
+
+<section class="categories" id="sec-colecoes">
+  <div class="category" onclick="filtrar('Vestidos')"><div class="overlay-card"><h3>Vestidos</h3></div></div>
+  <div class="category" onclick="filtrar('Shorts')"><div class="overlay-card"><h3>Shorts</h3></div></div>
+  <div class="category" onclick="filtrar('Conjuntos')"><div class="overlay-card"><h3>Conjuntos</h3></div></div>
+  <div class="category" onclick="filtrar('pijama')"><div class="overlay-card"><h3>Pijamas</h3></div></div>
+</section>
+
+<h2 id="titulo-publico" class="section-title">Moda por Público</h2>
+
+<section class="categories" id="sec-publico">
+  <div class="category" onclick="filtrar('masculino')"><div class="overlay-card"><h3>Masculino</h3></div></div>
+  <div class="category" onclick="filtrar('infantil')"><div class="overlay-card"><h3>Infantil</h3></div></div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="produtos" id="produtos">
+
+ <div class="lista-cabecalho">
+
+<button class="btn-voltar" onclick="voltar()">
+  <span class="arrow">←</span>
+  Voltar
+</button>
+
+<h2 id="titulo-categoria">Produtos</h2>
+
+</div>
+  <div class="grid-produtos">
+
+    <!-- FITNESS -->
+    <div class="produto-card" data-category="Vestidos">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13 (1).jpeg">
+      <h4>Top </h4>
+      <button onclick="adicionarSacola('Top Fitness')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="Vestidos">
+      <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg">
+      <h4>Legging Fitness</h4>
+      <button onclick="adicionarSacola('Legging Fitness')">Adicionar</button>
+    </div>
+
+    <!-- PRAIA -->
+    <div class="produto-card" data-category="Shorts">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13.jpeg">
+      <h4>Biquíni Verão</h4>
+      <button onclick="adicionarSacola('Biquíni Verão')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="Shorts">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Saída de Praia</h4>
+      <button onclick="adicionarSacola('Saída de Praia')">Adicionar</button>
+    </div>
+
+    <!-- CASUAL -->
+    <div class="produto-card" data-category="Conjuntos">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39 (1).jpeg">
+      <h4>Conjunto Casual</h4>
+      <button onclick="adicionarSacola('Conjunto Casual')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="Conjuntos">
+      <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg">
+      <h4>Vestido Casual</h4>
+      <button onclick="adicionarSacola('Vestido Casual')">Adicionar</button>
+    </div>
+
+    <!-- PIJAMA -->
+    <div class="produto-card" data-category="pijama">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Pijama Confort</h4>
+      <button onclick="adicionarSacola('Pijama Confort')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="pijama">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13.jpeg">
+      <h4>Pijama Soft</h4>
+      <button onclick="adicionarSacola('Pijama Soft')">Adicionar</button>
+    </div>
+
+    <!-- MASCULINO -->
+    <div class="produto-card" data-category="masculino">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Camiseta Masculina</h4>
+      <button onclick="adicionarSacola('Camiseta Masculina')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="masculino">
+      <img src="WhatsApp Image 2026-01-14 at 21.33.55.jpeg">
+      <h4>Bermuda Masculina</h4>
+      <button onclick="adicionarSacola('Bermuda Masculina')">Adicionar</button>
+    </div>
+
+    <!-- INFANTIL -->
+    <div class="produto-card" data-category="infantil">
+      <img src="WhatsApp Image 2026-01-14 at 21.13.13.jpeg">
+      <h4>Conjunto Infantil</h4>
+      <button onclick="adicionarSacola('Conjunto Infantil')">Adicionar</button>
+    </div>
+
+    <div class="produto-card" data-category="infantil">
+      <img src="WhatsApp Image 2026-01-14 at 22.57.39.jpeg">
+      <h4>Pijama Infantil</h4>
+      <button onclick="adicionarSacola('Pijama Infantil')">Adicionar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos" class="about-section">
+  <h2>Quem Somos</h2>
+  <p>
+    Trabalhamos com numerações do tamanho 0 ao Plus Size,
+    valorizando todos os corpos com conforto, qualidade e estilo.
+    Atendemos moda fitness, praia, casual e pijamas
+    para o público feminino, masculino e infantil.
+  </p>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="footer" id="contatos">
+
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>
+        📞 Vendas:
+        <a href="https://wa.me/5511999990001" target="_blank">
+          (11) 99999-0001
+        </a>
+      </p>
+
+      <p>
+        💼 Financeiro:
+        <a href="https://wa.me/5511988880000" target="_blank">
+          (11) 98888-0000
+        </a>
+      </p>
+
+      <p class="footer-maps">
+        📍 Rua Silveiras, 163 A<br>
+        Viradouro – SP • 14740-000
+      </p>
+
+      <a
+        class="btn-maps"
+        href="https://www.google.com/maps/search/?api=1&query=Rua+Silveiras+163+A,+Viradouro+SP,+14740-000"
+        target="_blank"
+      >
+        📍 Como chegar
+      </a>
+    </div>
+
+    <!-- COLUNA 3 -->
+    <div class="footer-col">
+      <h4>Siga nossas redes sociais</h4>
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">Facebook</a>
+      <a href="#" target="_blank">TikTok</a>
+  
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+MF Bazar e Antiguidades — Todos os direitos reservados
+  </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
