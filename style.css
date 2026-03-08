@@ -178,17 +178,23 @@ transition:.35s ease;
 box-shadow:0 0 25px rgba(0,0,0,0.15);
 }
 
+/* MENU LATERAL */
+
 .sidebar{
-left:-280px;
+left:-300px;
 width:280px;
 padding:25px;
+display:flex;
+flex-direction:column;
 }
+
 
 .sidebar.open{
 left:0;
 }
 
 /* ================= CARRINHO MELHORADO ================= */
+
 
 .sidebar-cart{
 right:-320px;
@@ -201,6 +207,71 @@ background:var(--branco-suave);
 
 .sidebar-cart.open{
 right:0;
+}
+
+
+
+/* HEADER DO MENU */
+
+.sidebar-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+border-bottom:1px solid rgba(0,0,0,0.08);
+padding-bottom:10px;
+}
+
+.sidebar-header h3{
+font-size:18px;
+color:var(--marrom);
+font-weight:700;
+}
+
+.close-btn{
+font-size:26px;
+cursor:pointer;
+color:var(--marrom);
+transition:.2s;
+}
+
+.close-btn:hover{
+transform:scale(1.2);
+}
+
+/* NAVEGAÇÃO */
+
+.sidebar nav{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+/* TITULOS (Moda / Público) */
+
+.sidebar nav h4{
+margin-top:14px;
+margin-bottom:4px;
+font-size:13px;
+color:var(--marrom);
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+/* LINKS */
+
+.sidebar nav a{
+text-decoration:none;
+color:var(--preto);
+font-size:14px;
+padding:6px 0;
+transition:.2s;
+}
+
+.sidebar nav a:hover{
+color:var(--marrom);
+padding-left:6px;
 }
 
 #cart-items{
