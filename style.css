@@ -262,16 +262,20 @@ letter-spacing:1px;
 /* LINKS */
 
 .sidebar nav a{
+display:block;
 text-decoration:none;
 color:var(--preto);
-font-size:14px;
-padding:6px 0;
+font-size:15px;
+padding:12px 10px;
+border-radius:8px;
+margin-bottom:4px;
 transition:.2s;
 }
 
 .sidebar nav a:hover{
+background:rgba(201,166,118,0.15);
 color:var(--marrom);
-padding-left:6px;
+padding-left:16px;
 }
 
 #cart-items{
@@ -636,6 +640,11 @@ font-size:28px;
 /* ================= RESPONSIVO ================= */
 @media (max-width:768px){
 
+    .sidebar nav a{
+padding:14px 10px;
+font-size:16px;
+}
+
 .footer{
 text-align:center;
 padding:30px 15px;
@@ -689,4 +698,8 @@ grid-template-columns:repeat(4,1fr);
 height:320px;
 }
 
+.sidebar nav a{
+padding:14px 10px;
+font-size:16px;
+}
 }
